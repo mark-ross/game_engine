@@ -23,12 +23,14 @@ SDL_Surface* ResourceManager::add_resource(std::string fname) {
 
     //if there is no entry, pop the name on the flist
     //and load the new texture, returning the pointer
-    flist.push_back(fname);
     SDL_Surface* tmp = SDL_LoadBMP(fname.c_str());
     //check if everything is okay
     if(!tmp)    printf ("error loading sprite from%s\n", fname.c_str());
     //add it to the resource list
-    else        rlist.push_back(tmp);
+    else {
+        flist.push_back(fname);
+        rlist.push_back(tmp);
+    }
 
     //return the address
     return tmp;

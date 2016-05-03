@@ -7,6 +7,10 @@ CharacterManager::CharacterManager(SDL_Surface* s) {
     screen = s;
 }
 
+CharacterManager::~CharacterManager() {
+    delete &characters;
+}
+
 void CharacterManager::add_sprite(Character *c) {
     characters.push_back(c);
 }
@@ -14,7 +18,7 @@ void CharacterManager::add_sprite(Character *c) {
 void CharacterManager::events() {
     for(int i = 0; i < characters.size(); i++) {
         //do the event stuff here
-        //characters[i].events();
+        //characters[i]->events();
     }
 }
 
@@ -23,7 +27,9 @@ void CharacterManager::draw_sprites() {
     std::sort(characters.begin(), characters.end());
     //draw them all on the screen
     for(int i = 0; i < characters.size(); i++) {
-        SDL_BlitSurface(characters[i]->get_sprite(), NULL,
-                        screen, characters[i]->get_offset());
+        if(characters[i]->get_visibility()) {
+            SDL_BlitSurface(characters[i]->get_sprite(), NULL,
+                            screen, characters[i]->get_offset());
+        }
     }
 }

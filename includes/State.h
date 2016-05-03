@@ -7,7 +7,7 @@
 class State {
     public:
         //show the buffer on the screen
-        virtual void draw(Window*) {};
+        virtual void draw() {};
         //handle any button presses
         virtual void events(SDL_Event*) {};
         //update all the data necessary

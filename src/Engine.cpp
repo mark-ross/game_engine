@@ -41,7 +41,7 @@ void Engine::run_loop() {
     state->events( &events );
     state->update( &next_state );
     change_state();
-    state->draw( window );
+    state->draw();
 }
 
 void Engine::update_buffer() {

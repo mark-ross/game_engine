@@ -1,6 +1,6 @@
 #broken down sections for source code to be organized
 CHARACTERS = src/character.cpp
-OPEN_TEMPLATES = src/window.cpp src/state.cpp
+OPEN_TEMPLATES = src/window.cpp
 MANAGERS = src/ResourceManager.cpp src/CharacterManager.cpp
 STATES = src/start.cpp
 ENGINE = src/engine.cpp
